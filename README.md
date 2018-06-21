@@ -7,4 +7,4 @@ A quick Android + iOS app created to trial the responsiveness of React Native. T
 You can use `yarn` or `npm install` to get everything set up, and then use `react-native run-ios` or `react-native run-android`. Don't forget to set up your React Native tools first.
 
 ## Next Steps
-Aside from minor improvements to UI animations and transitions, the plan is to develop equivalent apps in NativeScript and Flutter to compare to the workflow, performance and viability of each stack in production.
+Aside from minor improvements to UI animations and transitions, the plan is to develop equivalent apps in NativeScript and Flutter to compare the workflow, performance and viability of each stack in production.
