@@ -18,16 +18,21 @@ export class PhotoRow extends Component<Props, State> {
   }
 
   render() {
+    // Default the height to window width
     let height = Dimensions.get("window").width;
+    // Now find the best resolution
     for (const post of this.props.row.posts) {
-      const image = bestResolution(post, 200);
+      const image = bestResolution(post, Dimensions.get("window").width/2);
       if (image.height > height) {
         height = image.height;
       }
     }
 
+    // If it's a single or double post
     if (this.props.row.posts.length <= 2) {
+      // Figure out ratio between the two
       const percentage = 100 / this.props.row.posts.length;
+      // Map the items out as a row
       const items = this.props.row.posts.map(post => {
         return (
           <Photo
@@ -39,21 +44,29 @@ export class PhotoRow extends Component<Props, State> {
         );
       });
 
+      // Done!
       return <View style={{ flex: 1, flexDirection: "row" }}>{items}</View>;
     } else {
+
+      // It's more than 2 items.. find the biggest item of the 3
       var bigItem = this.props.row.posts[0];
       var left = true;
       for (var i = 0; i < this.props.row.posts.length; i++) {
         const post = this.props.row.posts[i];
         if (calculateRatio(post) < 1) {
           bigItem = post;
+          // somewhat randomised left/right orientation
           left = i < this.props.row.posts.length / 2;
         }
       }
+
+      // Split out the smallitems from the big itesm
       const smallItems = this.props.row.posts.slice();
       removeFromArray(smallItems, bigItem);
 
+      // Calculate a new ratio WITHOUT the big picture 
       const percentage = 100 / (this.props.row.posts.length - 1);
+      // Map the small items
       const items = smallItems.map(post => {
         return (
           <Photo
@@ -65,6 +78,7 @@ export class PhotoRow extends Component<Props, State> {
         );
       });
 
+      // Now combine the big picture with the little pictures
       return (
         <View
           style={{ flex: 1, flexDirection: "row" }}

@@ -12,6 +12,7 @@ export interface State {
 }
 
 export class ViewScreen extends Component<Props, State> {
+  // Change title dpeending on post title
   static navigationOptions = ({ navigation } : NavigationScreenProps) => {
     return {
       title: (navigation.getParam("post", {}) as Post).data.title
@@ -27,6 +28,7 @@ export class ViewScreen extends Component<Props, State> {
   }
 
   componentDidMount() {
+    // Load post from params into state
     this.setState(previousState => {
       const { navigation } = this.props;
       return {
@@ -36,6 +38,7 @@ export class ViewScreen extends Component<Props, State> {
   }
 
   render() {
+    // Simply render the image fullscreen
     return this.state.post ? (
       <Image
         style={{ height: "100%", width: "100%", flex: 1 }}
