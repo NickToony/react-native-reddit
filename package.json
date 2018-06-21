@@ -1,0 +1,51 @@
+{
+  "name": "ReactRedditFeed",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "html-entities": "^1.2.1",
+    "native-base": "^2.5.2",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-image-placeholder": "^1.0.14",
+    "react-native-rest-client": "https://github.com/NickToony/react-native-rest-client.git",
+    "react-navigation": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/html-entities": "^1.2.16",
+    "@types/jest": "^23.1.1",
+    "@types/react": "^16.4.1",
+    "@types/react-native": "^0.55.22",
+    "@types/react-navigation": "^2.0.6",
+    "@types/react-test-renderer": "^16.0.1",
+    "babel-jest": "23.0.1",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "23.1.0",
+    "react-native-typescript-transformer": "^1.2.10",
+    "react-test-renderer": "16.3.1",
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.9.2"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache"
+  }
+}
